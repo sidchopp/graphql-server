@@ -2,21 +2,13 @@ import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 
 import { typeDefs } from "./schema.js";
-
-const books = [
-  {
-    title: "The Awakening",
-    author: "Kate Chopin",
-  },
-  {
-    title: "City of Glass",
-    author: "Paul Auster",
-  },
-];
+import db from "./db.js";
 
 const resolvers = {
   Query: {
-    books: () => books,
+    games: () => db.games,
+    authors: () => db.authors,
+    reviews: () => db.reviews,
   },
 };
 
