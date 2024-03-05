@@ -1,6 +1,8 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 
+import { typeDefs } from "./schema.js";
+
 const books = [
   {
     title: "The Awakening",
@@ -11,16 +13,6 @@ const books = [
     author: "Paul Auster",
   },
 ];
-
-const typeDefs = `#graphql
-  type Book {
-    title: String
-    author: String
-  }
-  type Query {
-    books: [Book]
-  }
-`;
 
 const resolvers = {
   Query: {
